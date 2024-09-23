@@ -194,6 +194,7 @@
             // 
             // dataGridViewReport1
             // 
+            this.dataGridViewReport1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewReport1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewReport1.Location = new System.Drawing.Point(36, 105);
             this.dataGridViewReport1.Name = "dataGridViewReport1";
