@@ -33,14 +33,19 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewDoctor = new System.Windows.Forms.DataGridView();
             this.buttonSaveDoctor = new System.Windows.Forms.Button();
             this.buttonSaveSpecialization = new System.Windows.Forms.Button();
             this.dataGridViewSpecialization = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specialization_id = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDoctor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSpecialization)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +64,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.buttonSaveDoctor);
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.dataGridViewDoctor);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -100,13 +105,20 @@
             this.tabPage4.Text = "Отчет2";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridViewDoctor
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 44);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(747, 360);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewDoctor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewDoctor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDoctor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Category,
+            this.Sertificate,
+            this.FIO,
+            this.specialization_id});
+            this.dataGridViewDoctor.Location = new System.Drawing.Point(0, 44);
+            this.dataGridViewDoctor.Name = "dataGridViewDoctor";
+            this.dataGridViewDoctor.Size = new System.Drawing.Size(747, 360);
+            this.dataGridViewDoctor.TabIndex = 0;
             // 
             // buttonSaveDoctor
             // 
@@ -116,6 +128,7 @@
             this.buttonSaveDoctor.TabIndex = 1;
             this.buttonSaveDoctor.Text = "Сохранить изменения";
             this.buttonSaveDoctor.UseVisualStyleBackColor = true;
+            this.buttonSaveDoctor.Click += new System.EventHandler(this.buttonSaveDoctor_Click);
             // 
             // buttonSaveSpecialization
             // 
@@ -125,14 +138,47 @@
             this.buttonSaveSpecialization.TabIndex = 0;
             this.buttonSaveSpecialization.Text = "Сохранить";
             this.buttonSaveSpecialization.UseVisualStyleBackColor = true;
+            this.buttonSaveSpecialization.Click += new System.EventHandler(this.buttonSaveSpecialization_Click);
             // 
             // dataGridViewSpecialization
             // 
+            this.dataGridViewSpecialization.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSpecialization.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSpecialization.Location = new System.Drawing.Point(0, 36);
             this.dataGridViewSpecialization.Name = "dataGridViewSpecialization";
             this.dataGridViewSpecialization.Size = new System.Drawing.Size(747, 364);
             this.dataGridViewSpecialization.TabIndex = 1;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            // 
+            // Category
+            // 
+            this.Category.DataPropertyName = "Category";
+            this.Category.HeaderText = "Category";
+            this.Category.Name = "Category";
+            // 
+            // Sertificate
+            // 
+            this.Sertificate.DataPropertyName = "Certificate";
+            this.Sertificate.HeaderText = "Certificate";
+            this.Sertificate.Name = "Sertificate";
+            this.Sertificate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // FIO
+            // 
+            this.FIO.DataPropertyName = "Name";
+            this.FIO.HeaderText = "FIO";
+            this.FIO.Name = "FIO";
+            // 
+            // specialization_id
+            // 
+            this.specialization_id.DataPropertyName = "specialization_id";
+            this.specialization_id.HeaderText = "SpecializationId";
+            this.specialization_id.Name = "specialization_id";
             // 
             // Form1
             // 
@@ -145,7 +191,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDoctor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSpecialization)).EndInit();
             this.ResumeLayout(false);
 
@@ -157,11 +203,16 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button buttonSaveDoctor;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewDoctor;
         private System.Windows.Forms.DataGridView dataGridViewSpecialization;
         private System.Windows.Forms.Button buttonSaveSpecialization;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sertificate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FIO;
+        private System.Windows.Forms.DataGridViewComboBoxColumn specialization_id;
     }
 }
 
