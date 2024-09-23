@@ -77,5 +77,45 @@ namespace _1Lab
                 dataGridViewReport2.DataSource = ds.Tables["report2"];
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string start = textBox1.Text;
+            string end = textBox2.Text;
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+
+                SqlCommand sqlCommand = new SqlCommand(
+                    $"SELECT Doctor.Name as ФИО_Врача, COUNT(Visiting.doctor_id) AS Количество_посещений, Specialization.Name AS Специальность " +
+                    $"FROM Visiting " +
+                    $"JOIN Doctor ON Visiting.doctor_id = Doctor.Id " +
+                    $"JOIN Specialization ON Doctor.specialization_id = Specialization.Id " +
+                    $"WHERE Visiting.Date > '{start}' AND Visiting.Date < '{end}' " +
+                    $"GROUP BY Doctor.Name, Specialization.Name",
+                    sqlConnection);
+
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+                DataTable dataTable = new DataTable("report2");
+                dataTable.Columns.Add("ФИО_Врача");
+                dataTable.Columns.Add("Кол-во посещений");
+                dataTable.Columns.Add("Специальность");
+
+                while (sqlDataReader.Read())
+                {
+                    DataRow row = dataTable.NewRow();
+                    row["ФИО_Врача"] = sqlDataReader["ФИО_врача"];
+                    row["Кол-во посещений"] = sqlDataReader["Количество_посещений"];
+                    row["Специальность"] = sqlDataReader["Специальность"];
+                    dataTable.Rows.Add(row);
+                }
+
+                sqlDataReader.Close();
+
+                dataGridViewReport1.DataSource = dataTable;
+            }
+        }
     }
 }
