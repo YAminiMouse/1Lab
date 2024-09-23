@@ -34,6 +34,19 @@ namespace _1Lab
 
             dataGridViewDoctor.DataSource = dataSet.Tables["Doctor"];
             dataGridViewSpecialization.DataSource = dataSet.Tables["Specialization"];
+
+            FillSpecializationDoctorCombobox();
+        }
+
+        private void FillSpecializationDoctorCombobox()
+        {
+            ((DataGridViewComboBoxColumn)dataGridViewDoctor.Columns["specialization_id"]).DataSource = 
+                dataSet.Tables["Specialization"];
+            ((DataGridViewComboBoxColumn)dataGridViewDoctor.Columns["specialization_id"]).DisplayMember = 
+                "Name";
+            ((DataGridViewComboBoxColumn)dataGridViewDoctor.Columns["specialization_id"]).ValueMember =
+                "Id";
+
         }
 
         private void buttonSaveDoctor_Click(object sender, EventArgs e)
@@ -44,6 +57,25 @@ namespace _1Lab
         private void buttonSaveSpecialization_Click(object sender, EventArgs e)
         {
             adapterSpecialization.Update(dataSet, "Specialization");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("GetVisits", sqlConnection);
+                sqlDataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                sqlDataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@startDate", SqlDbType.Date));
+                sqlDataAdapter.SelectCommand.Parameters["@startDate"].Value = dateTimePicker1.Value;
+
+                sqlDataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@endDate", SqlDbType.Date));
+                sqlDataAdapter.SelectCommand.Parameters["@endDate"].Value = dateTimePicker2.Value;
+
+                DataSet ds = new DataSet();
+                sqlDataAdapter.Fill(ds, "report2");
+                dataGridViewReport2.DataSource = ds.Tables["report2"];
+            }
         }
     }
 }
