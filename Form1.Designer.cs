@@ -32,15 +32,13 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttonSaveDoctor = new System.Windows.Forms.Button();
             this.dataGridViewDoctor = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specialization_id = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridViewSpecialization = new System.Windows.Forms.DataGridView();
             this.buttonSaveSpecialization = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridViewReport1 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,9 +49,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specialization_id = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDoctor)).BeginInit();
@@ -114,37 +114,6 @@
             this.dataGridViewDoctor.Size = new System.Drawing.Size(747, 360);
             this.dataGridViewDoctor.TabIndex = 0;
             // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            // 
-            // Category
-            // 
-            this.Category.DataPropertyName = "Category";
-            this.Category.HeaderText = "Category";
-            this.Category.Name = "Category";
-            // 
-            // Sertificate
-            // 
-            this.Sertificate.DataPropertyName = "Certificate";
-            this.Sertificate.HeaderText = "Certificate";
-            this.Sertificate.Name = "Sertificate";
-            this.Sertificate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // FIO
-            // 
-            this.FIO.DataPropertyName = "Name";
-            this.FIO.HeaderText = "FIO";
-            this.FIO.Name = "FIO";
-            // 
-            // specialization_id
-            // 
-            this.specialization_id.DataPropertyName = "specialization_id";
-            this.specialization_id.HeaderText = "SpecializationId";
-            this.specialization_id.Name = "specialization_id";
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dataGridViewSpecialization);
@@ -191,6 +160,29 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Отчет1";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(467, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(19, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "по";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(525, 24);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 5;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(324, 25);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 4;
             // 
             // dataGridViewReport1
             // 
@@ -287,28 +279,36 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Посещения поликлиники с ";
             // 
-            // textBox1
+            // Id
             // 
-            this.textBox1.Location = new System.Drawing.Point(324, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
             // 
-            // textBox2
+            // Category
             // 
-            this.textBox2.Location = new System.Drawing.Point(525, 24);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
+            this.Category.DataPropertyName = "Category";
+            this.Category.HeaderText = "Категория";
+            this.Category.Name = "Category";
             // 
-            // label4
+            // Sertificate
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(467, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(19, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "по";
+            this.Sertificate.DataPropertyName = "Certificate";
+            this.Sertificate.HeaderText = "Сертификат";
+            this.Sertificate.Name = "Sertificate";
+            this.Sertificate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // FIO
+            // 
+            this.FIO.DataPropertyName = "Name";
+            this.FIO.HeaderText = "ФИО";
+            this.FIO.Name = "FIO";
+            // 
+            // specialization_id
+            // 
+            this.specialization_id.DataPropertyName = "specialization_id";
+            this.specialization_id.HeaderText = "Специализация";
+            this.specialization_id.Name = "specialization_id";
             // 
             // Form1
             // 
@@ -344,11 +344,6 @@
         private System.Windows.Forms.Button buttonSaveSpecialization;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sertificate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FIO;
-        private System.Windows.Forms.DataGridViewComboBoxColumn specialization_id;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridViewReport2;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
@@ -361,6 +356,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sertificate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FIO;
+        private System.Windows.Forms.DataGridViewComboBoxColumn specialization_id;
     }
 }
 
